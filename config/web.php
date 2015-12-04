@@ -6,7 +6,16 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language'=> 'ru',
     'components' => [
+	'urlManager' => [
+	    'enablePrettyUrl' => true,
+	    'showScriptName' => false,
+	    'rules' => [
+		'' => 'site/index',
+		'<controller:[\w\-]+>' => '<controller>/index',
+	    ],
+	],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'cK_mLtslRMXwcMrw9tkj3vHhJkeAEPY1',
@@ -27,6 +36,19 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
+        ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    //'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'app' => 'app.php',
+                        'app/error' => 'error.php',
+                    ],
+                ],     
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
