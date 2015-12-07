@@ -17,22 +17,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
         <div class="alert alert-success">
-            <?= Yii::t('app','Thank you for contacting us. We will respond to you as soon as possible.'); ?>
+            <?= Yii::t('app', 'Contact FormSubmitted note'); ?>
         </div>
 
         <p>
-            <?= Yii::t('app','Note that if you turn on the Yii debugger, you should be able to view the mail message on the mail panel of the debugger.'); ?>
+            <?= Yii::t('app','Contact Yii debugger note'); ?>
             <?php if (Yii::$app->mailer->useFileTransport): ?>
-                <?= Yii::t('app','Because the application is in development mode, the email is not sent but saved as a file under'); ?>
-                <code><?= Yii::getAlias(Yii::$app->mailer->fileTransportPath) ?></code>. '.' . 
-                <?= Yii::t('app','Please configure the <code>{useFileTransport}</code> property of the <code>{mail}</code> application component to be false to enable email sending.') ?>
+                <?= Yii::t('app','Contact email note {fileTransportPath}', ['fileTransportPath'=> Yii::getAlias(Yii::$app->mailer->fileTransportPath)]); ?>
             <?php endif; ?>
         </p>
 
     <?php else: ?>
 
         <p>
-            <?= Yii::t('app','If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.'); ?>
+            <?= Yii::t('app', 'Contact upper note'); ?>
         </p>
 
         <div class="row">

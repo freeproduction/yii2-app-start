@@ -17,6 +17,20 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Random text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur.',
+    'Index greeting' => 'You have successfully created your Yii-powered application.',
+    'About note' => 'This is the About page. You may modify the following file to customize its content:',
+    'Error contact note' => 'Please contact us if you think this is a server error. Thank you.',
+    'Web error note' => 'The above error occurred while the Web server was processing your request.',
+    'Contact email note {fileTransportPath}' => 'Because the application is in development mode, the email is not sent but saved as a file under <code>{fileTransportPath}</code>. Please configure the <code>useFileTransport</code> property of the <code>mail</code> application component to be false to enable email sending.',
+    'Contact Yii debugger note' => 'Note that if you turn on the Yii debugger, you should be able to view the mail message on the mail panel of the debugger.<br>',
+    'Contact FormSubmitted note' => 'Thank you for contacting us. We will respond to you as soon as possible.',
+    'Contact upper note' => 'If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.',
+    'Login upper note' => 'Please fill out the following fields to login:',
+    'Login bottom note' => 'You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br> To modify the username/password, please check out the code <code>app\models\User::$users</code>.',
     '(not set)' => '',
     'All relations' => '',
     'All relations with inverse' => '',

@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -50,7 +51,14 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            ),
+            [
+                'label' => strtoupper(Yii::$app->language),
+                'items' => [
+                    ['label' => 'RU', 'url' => Url::current(['lang' => 'ru'])],
+                    ['label' => 'EN', 'url' => Url::current(['lang' => 'en'])],
+                ],
+            ],
         ],
     ]);
     NavBar::end();

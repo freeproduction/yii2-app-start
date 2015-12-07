@@ -18,10 +18,10 @@ $this->title = $name;
     </div>
 
     <p>
-        <?= Yii::t('app', 'The above error occurred while the Web server was processing your request.'); ?>
+        <?= Yii::t('app', 'Web error note'); ?>
     </p>
     <p>
-        <?= Yii::t('app', 'Please contact us if you think this is a server error. Thank you.'); ?>
+        <?= Yii::t('app', 'Error contact note'); ?>
     </p>
 
 </div>
