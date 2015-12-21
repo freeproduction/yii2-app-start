@@ -40,18 +40,21 @@ AppAsset::register($this);
             ['label' => Yii::t('app','Home'), 'url' => ['/site/index']],
             ['label' => Yii::t('app','About'), 'url' => ['/site/about']],
             ['label' => Yii::t('app','Contact'), 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => Yii::t('app','Login'), 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    Yii::t('app','Logout') . ' (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link']
-                )
-                . Html::endForm()
-                . '</li>'
-            ),
+            !Yii::$app->user->isGuest ? 
+                ['label' => Yii::t('app','Profile'), 'url' => ['/user/settings/profile']]
+            : '',
+            Yii::$app->user->isGuest ? 
+                ['label' => Yii::t('app','Login'), 'url' => ['/user/login']]
+            :
+                [
+                  'label' => Yii::t('app', 'Logout').' (' . Yii::$app->user->identity->username . ')', 
+                  'url' => ['/site/logout'],
+                  'linkOptions' => ['data-method' => 'post']
+                ]
+            ,
+            Yii::$app->user->isGuest ? 
+                ['label' => Yii::t('app','Sign Up'), 'url' => ['/user/register']]
+            : '',
             [
                 'label' => strtoupper(Yii::$app->language),
                 'items' => [

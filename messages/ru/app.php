@@ -53,6 +53,8 @@ return [
     'Subject' => 'Тема',
     'Body' => 'Текст',
     'Verification Code' => 'Код подтверждения',
+    'Sign Up' => 'Регистрация',
+    'Profile' => 'Профиль',
     '(not set)' => '',
     'All relations' => '',
     'All relations with inverse' => '',
