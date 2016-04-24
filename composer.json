@@ -1,24 +1,23 @@
 {
-    "name": "yiisoft/yii2-app-basic",
-    "description": "Yii 2 Basic Project Template",
-    "keywords": ["yii2", "framework", "basic", "project template"],
+    "name": "neogen-projects/yii2-app-start",
+    "description": "Yii 2 Start Application",
+    "keywords": ["yii2", "app-start", "start", "project template"],
     "homepage": "http://www.yiiframework.com/",
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+        "issues": "https://github.com/neogen-projects/yii2-app-start/issues?state=open",
         "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
+        "wiki": "https://github.com/neogen-projects/yii2-app-start/wiki",
+        "source": "https://github.com/neogen-projects/yii2-app-start"
     },
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.5.0",
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "dektrium/yii2-user": "0.9.*@dev",
+        "dektrium/yii2-user": "1.*@dev",
         "dektrium/yii2-rbac": "dev-master"
     },
     "require-dev": {
