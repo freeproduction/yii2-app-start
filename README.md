@@ -1,44 +1,169 @@
 Yii2 Start Application
-==========
+======================
 
-1. Установка необходимых расширений PHP
+[Руководство на русском языке](README.ru.md)
 
-```
-    sudo apt-get install php5-mysql php5-sqlite php5-imagick php5-intl php5-memcache php5-curl
-```
+[Requirements](#requirements)
+[Yii2-app-start installation](#yii2-app-start-installation)
+[Create custom application](#create-custom-application)
 
-2. Установка зависимостей проекта
+Requirements
+------------
 
-    Выполните в корневой папке проекта:
+The minimum requirement by this project template that your Web server supports PHP 5.5.
 
-```
-    composer install
-    composer run-script post-create-project-cmd
-```
+To install required PHP-packages execute following commands:
 
-3. Настройка базы данных
+~~~
+sudo apt-get install php5-mysql php5-sqlite php5-imagick php5-intl php5-memcache php5-curl
+~~~
 
-    Выполните в корневой папке проекта:
+Yii2-app-start installation
+---------------------------
+
+### 1. Clone project repository
+
+~~~
+git clone https://github.com/neogen-projects/yii2-app-start.git
+~~~
+
+### 2. Install dependencies
+
+If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
+at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
+
+Execute following commands in the root directory of the `yii2-app-start` project:
+
+~~~
+composer global require "fxp/composer-asset-plugin:~1.1.0"
+composer install
+composer run-script post-create-project-cmd
+~~~
+
+### 3. Create database schema
+
+Execute following commands in the root directory of the project:
     
+~~~
+mysql -u root -p < data/create_db.sql
+php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
+~~~
+
+### 4. Configure Apache Web server
+
+Execute following commands in the root directory of the project:
+
+~~~
+sudo ln -s `pwd` /var/www/yii2start
+sudo a2enmod rewrite
+sudo cp ./config/webserver/apache-site.conf /etc/apache2/sites-available/yii2start.conf
+sudo a2ensite yii2start
+sudo service apache2 restart
+~~~
+
+You can then access the application through the URL http://localhost
+
+
+Create custom application
+-------------------------
+
+You can create custom `myapp` web application based on the `yii2-app-start` project.
+
+### 1. Copy project files
+
+You can copy `yii2-app-start` project files to `myapp` using the following commands:
+
+~~~
+wget https://github.com/neogen-projects/yii2-app-start/archive/master.zip
+unzip master.zip; rm master.zip
+mv yii2-app-start-master myapp
+~~~
+
+### 2. Install dependencies
+
+If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
+at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
+
+Execute following commands in the root directory of the `myapp` project:
+
+~~~
+composer global require "fxp/composer-asset-plugin:~1.1.0"
+composer install
+composer run-script post-create-project-cmd
+~~~
+
+### 3. Change project name
+
+Отредактируйте файл `composer.json`, указав название и параметры вашего проекта `myapp`.
+В файлах `config/web.php` и `config/console.php` замените значение параметра `id` на
+актуальное название вашего проекта.
+
+### 4. Create database schema
+
+Edit the file `data/create_db.sql` with real data of the `myapp` application:
+
+```sql
+CREATE DATABASE myapp CHARACTER SET utf8;
+CREATE USER 'myapp'@'localhost' IDENTIFIED BY 'myapp_password';
+GRANT ALL PRIVILEGES ON myapp.* TO 'myapp'@'localhost';
 ```
-    mysql -u root -p < data/create_db.sql
-   // php yii migrate
+
+Edit the file `config/db.php` with real parameters of the `myapp` DB connection:
+
+```php
+return [
+    'class' => 'yii\db\Connection',
+    'dsn' => 'mysql:host=localhost;dbname=myapp',
+    'username' => 'myapp',
+    'password' => 'myapp_password',
+    'charset' => 'utf8',
+];
 ```
 
-4. Настройка web-сервера
-
-    Выполните в корневой папке проекта:
-
-```
-    sudo ln -s `pwd` /var/www/yii2start
-    ls -l /var/www/yii2start
-        lrwxrwxrwx 1 root root 35 июля  23 23:54 /var/www/yii2start -> </full/path/to/yii2start>
-
-    sudo a2enmod rewrite
-    sudo cp ./config/webserver/yii2start.conf /etc/apache2/sites-available/
-    sudo a2ensite yii2start
-    sudo service apache2 restart
-```
-
-    По адресу http://localhost:81 должна открываться стартовая страница приложения.
+Execute following commands in the root directory of the project:
     
+~~~
+mysql -u root -p < data/create_db.sql
+php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
+~~~
+
+### 5. Настройте web-сервер Apache
+
+Edit the file `config/webserver/apache-site.conf` with real data of the `myapp` application:
+
+```
+<VirtualHost *:80>
+    DocumentRoot "/var/www/myapp/web"
+
+    <Directory "/var/www/myapp/web">
+        # use mod_rewrite for pretty URL support
+        RewriteEngine on
+        # If a directory or a file exists, use the request directly
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        # Otherwise forward the request to index.php
+        RewriteRule . index.php
+
+        Options +Indexes +FollowSymLinks +MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/myapp-error.log
+    CustomLog ${APACHE_LOG_DIR}/myapp-access.log combined
+</VirtualHost>
+```
+
+Execute following commands in the root directory of the project:
+
+~~~
+sudo ln -s `pwd` /var/www/myapp
+sudo a2enmod rewrite
+sudo cp ./config/webserver/apache-site.conf /etc/apache2/sites-available/myapp.conf
+sudo a2ensite myapp
+sudo service apache2 restart
+~~~
+
+You can then access the application through the URL http://localhost

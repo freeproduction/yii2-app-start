@@ -4,7 +4,7 @@ $params = require(__DIR__ . '/params.php');
 $mailer = require(__DIR__ . '/mailer.php');
 
 $config = [
-    'id' => 'basic',
+    'id' => 'yii2start',
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
         'log',
