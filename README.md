@@ -3,9 +3,9 @@ Yii2 Start Application
 
 [Руководство на русском языке](README.ru.md)
 
-[Requirements](#requirements)
-[Yii2-app-start installation](#yii2-app-start-installation)
-[Create custom application](#create-custom-application)
+* [Requirements](#requirements)
+* [Yii2-app-start installation](#yii2-app-start-installation)
+* [Create custom application](#create-custom-application)
 
 Requirements
 ------------
@@ -127,7 +127,7 @@ mysql -u root -p < data/create_db.sql
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 ~~~
 
-### 5. Настройте web-сервер Apache
+### 5. Configure Apache Web server
 
 Edit the file `config/webserver/apache-site.conf` with real data of the `myapp` application:
 
@@ -166,4 +166,4 @@ sudo a2ensite myapp
 sudo service apache2 restart
 ~~~
 
-You can then access the application through the URL http://localhost
+You can then access the application through the URL [http://localhost](http://localhost)
