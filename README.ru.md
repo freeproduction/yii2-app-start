@@ -33,7 +33,7 @@ git clone https://github.com/neogen-projects/yii2-app-start.git
 Выполните следующие команды в корневой папке проекта `yii2-app-start`:
 
 ~~~
-composer global require "fxp/composer-asset-plugin:~1.1.0"
+composer global require fxp/composer-asset-plugin --no-plugins
 composer install
 composer run-script post-create-project-cmd
 ~~~
@@ -43,7 +43,7 @@ composer run-script post-create-project-cmd
 Выполните в корневой папке проекта:
     
 ~~~
-mysql -u root -p < data/create_db.sql
+sudo mysql -u root < data/create_db.sql
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 ~~~
 
@@ -59,7 +59,7 @@ sudo a2ensite yii2start
 sudo service apache2 restart
 ~~~
 
-По адресу http://localhost теперь должна открываться стартовая страница приложения.
+По адресу [http://localhost](http://localhost) теперь должна открываться стартовая страница приложения.
 
 
 Создание собственного приложения
@@ -85,7 +85,7 @@ mv yii2-app-start-master myapp
 Выполните следующие команды в корневой папке проекта `myapp`:
 
 ~~~
-composer global require "fxp/composer-asset-plugin:~1.1.0"
+composer global require fxp/composer-asset-plugin --no-plugins
 composer install
 composer run-script post-create-project-cmd
 ~~~
@@ -121,7 +121,7 @@ return [
 Выполните в корневой папке проекта:
     
 ~~~
-mysql -u root -p < data/create_db.sql
+sudo mysql -u root < data/create_db.sql
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 ~~~
 

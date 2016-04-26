@@ -35,7 +35,7 @@ at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 Execute following commands in the root directory of the `yii2-app-start` project:
 
 ~~~
-composer global require "fxp/composer-asset-plugin:~1.1.0"
+composer global require fxp/composer-asset-plugin --no-plugins
 composer install
 composer run-script post-create-project-cmd
 ~~~
@@ -45,7 +45,7 @@ composer run-script post-create-project-cmd
 Execute following commands in the root directory of the project:
     
 ~~~
-mysql -u root -p < data/create_db.sql
+sudo mysql -u root < data/create_db.sql
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 ~~~
 
@@ -61,7 +61,7 @@ sudo a2ensite yii2start
 sudo service apache2 restart
 ~~~
 
-You can then access the application through the URL http://localhost
+You can then access the application through the URL [http://localhost](http://localhost)
 
 
 Create custom application
@@ -87,7 +87,7 @@ at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 Execute following commands in the root directory of the `myapp` project:
 
 ~~~
-composer global require "fxp/composer-asset-plugin:~1.1.0"
+composer global require fxp/composer-asset-plugin --no-plugins
 composer install
 composer run-script post-create-project-cmd
 ~~~
@@ -123,7 +123,7 @@ return [
 Execute following commands in the root directory of the project:
     
 ~~~
-mysql -u root -p < data/create_db.sql
+sudo mysql -u root < data/create_db.sql
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 ~~~
 
