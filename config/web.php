@@ -16,7 +16,14 @@ $config = [
     'modules' => [
         'user' => [ 
             'class' => 'dektrium\user\Module',
-            'admins' => ['dasha']
+            'modelMap' => [
+                'User' => 'app\models\user\User',
+                'LoginForm'        => 'app\models\user\LoginForm',
+                'RegistrationForm' => 'app\models\user\RegistrationForm',
+                'SettingsForm'     => 'app\models\user\SettingsForm',
+                'RecoveryForm'     => 'app\models\user\RecoveryForm',
+            ],
+            'enableConfirmation' => false
         ],
         'rbac' => [
             'class' => 'dektrium\rbac\Module',
@@ -39,7 +46,14 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-             'identityClass' => 'app\models\User',
+             'identityClass' => 'app\models\user\User',
+        ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@app/views/user'
+                ],
+            ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
