@@ -7,10 +7,7 @@ $config = [
     'id' => 'yii2start',
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
-        'log',
-        [
-            'class' => 'app\components\LanguageSelector',
-        ],
+        'log'
     ],
     'language'=> 'en',
     'modules' => [
@@ -33,6 +30,8 @@ $config = [
 	'urlManager' => [
 	    'enablePrettyUrl' => true,
 	    'showScriptName' => false,
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['en', 'ru'],
 	    'rules' => [
 		'' => 'site/index',
 		'<controller:[\w\-]+>' => '<controller>/index',

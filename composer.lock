@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "859dad683dd8854bc8d4e01929066599",
-    "content-hash": "193e1e50e17749081e818cfbb363306a",
+    "hash": "53dc24f21f9a6cc5e9e0558bfa7ce17c",
+    "content-hash": "531dca87614907f9dbbb26b14add3bed",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -267,6 +267,47 @@
                 "markdown-extra"
             ],
             "time": "2016-03-18 13:28:11"
+        },
+        {
+            "name": "codemix/yii2-localeurls",
+            "version": "1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codemix/yii2-localeurls.git",
+                "reference": "342ffbd5f5d9a1264a82f21ccc669ebcc3102703"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codemix/yii2-localeurls/zipball/342ffbd5f5d9a1264a82f21ccc669ebcc3102703",
+                "reference": "342ffbd5f5d9a1264a82f21ccc669ebcc3102703",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "codemix\\localeurls\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Härtl",
+                    "email": "haertl.mike@gmail.com"
+                }
+            ],
+            "description": "Automatic locale/language management for URLs.",
+            "keywords": [
+                "i18n",
+                "locale",
+                "yii2"
+            ],
+            "time": "2016-03-21 21:06:23"
         },
         {
             "name": "dektrium/yii2-rbac",

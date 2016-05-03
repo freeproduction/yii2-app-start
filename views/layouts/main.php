@@ -58,8 +58,8 @@ AppAsset::register($this);
             [
                 'label' => strtoupper(Yii::$app->language),
                 'items' => [
-                    ['label' => 'RU', 'url' => Url::current(['lang' => 'ru'])],
-                    ['label' => 'EN', 'url' => Url::current(['lang' => 'en'])],
+                    ['label' => 'RU', 'url' => Url::current(['language' => 'ru'])],
+                    ['label' => 'EN', 'url' => Url::current(['language' => 'en'])],
                 ],
             ],
         ],
