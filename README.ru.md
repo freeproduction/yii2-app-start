@@ -13,7 +13,7 @@ Yii2 Стартовое приложение
 Для установки необходимых расширений PHP выполните в командной строке:
 
 ~~~
-sudo apt-get install php5-mysql php5-sqlite php5-imagick php5-intl php5-memcache php5-curl
+sudo apt-get install php-mysql php-imagick php-intl php-memcache php-curl php-cli php-mbstring
 ~~~
 
 Установка yii2-app-start
@@ -45,6 +45,7 @@ composer run-script post-create-project-cmd
 ~~~
 sudo mysql -u root < data/create_db.sql
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
+php yii migrate --migrationPath=@yii/rbac/migrations
 ~~~
 
 ### 4. Настройте web-сервер Apache

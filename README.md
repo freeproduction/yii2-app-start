@@ -15,7 +15,7 @@ The minimum requirement by this project template that your Web server supports P
 To install required PHP-packages execute following commands:
 
 ~~~
-sudo apt-get install php5-mysql php5-sqlite php5-imagick php5-intl php5-memcache php5-curl
+sudo apt-get install php-mysql php-imagick php-intl php-memcache php-curl php-cli php-mbstring
 ~~~
 
 Yii2-app-start installation
@@ -47,6 +47,7 @@ Execute following commands in the root directory of the project:
 ~~~
 sudo mysql -u root < data/create_db.sql
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
+php yii migrate --migrationPath=@yii/rbac/migrations
 ~~~
 
 ### 4. Configure Apache Web server
