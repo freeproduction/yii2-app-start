@@ -22,9 +22,7 @@ $config = [
             ],
             'enableConfirmation' => false
         ],
-        'rbac' => [
-            'class' => 'dektrium\rbac\Module',
-        ],
+        'rbac' => 'dektrium\rbac\RbacWebModule'
     ],
     'components' => [
 	'urlManager' => [

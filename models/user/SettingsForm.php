@@ -13,7 +13,7 @@ class SettingsForm extends BaseSettingsForm {
     /** @inheritdoc */
     public function rules() {
         $rules = parent::rules();
-        $rules[count($rules) - 2]['min'] = User::PASSWORD_MIN_LENGTH;
+        $rules['newPasswordLength']['min'] = User::PASSWORD_MIN_LENGTH;
         return $rules;
     }
 

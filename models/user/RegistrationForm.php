@@ -2,6 +2,7 @@
 
 namespace app\models\user;
 
+use Yii;
 use dektrium\user\models\RegistrationForm as BaseRegistrationForm;
 use app\models\user\User;
 
@@ -15,8 +16,38 @@ class RegistrationForm extends BaseRegistrationForm {
      */
     public function rules() {
         $rules = parent::rules();
-        $rules[count($rules) - 1]['min'] = User::PASSWORD_MIN_LENGTH;
+        $rules['passwordLength']['min'] = User::PASSWORD_MIN_LENGTH;
         return $rules;
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function register()
+    {
+        if (!$this->validate()) {
+            return false;
+        }
+
+        /** @var User $user */
+        $user = Yii::createObject(User::className());
+        $user->setScenario('register');
+        $this->loadAttributes($user);
+
+        if (!$user->register()) {
+            return false;
+        }
+
+        $message = 'Your account has been created';
+        if ($this->module->enableConfirmation || $this->module->enableGeneratingPassword) {
+            $message .= ' and a message with further instructions has been sent to your email';
+        }
+        Yii::$app->session->setFlash(
+            'info',
+            Yii::t('user', $message)
+        );
+
+        return true;
     }
 
 }
